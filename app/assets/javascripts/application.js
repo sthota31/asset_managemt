@@ -14,3 +14,40 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+
+
+(function( $, undefined ) {
+    $.notification = function(options) {
+        var opts = $.extend({}, {type: 'notice', time: 3000}, options);
+        var o    = opts;
+
+        timeout          = setTimeout('$.notification.removebar()', o.time);
+        var message_span = $('<span />').addClass('alert alert-info').html(o.message);
+        var wrap_bar     = $('<div />').addClass('alert alert-info').css("cursor", "pointer");
+
+    if (o.type == 'error') {
+          wrap_bar.css({"color": "#D8000C"})
+        };
+
+        wrap_bar.click(function(){
+            $.notification.removebar()
+        });
+
+        wrap_bar.append(message_span).hide()
+            .insertAfter($('.flash')).fadeIn('fast');
+    };
+
+
+    var timeout;
+    $.notification.removebar    = function(txt) {
+        if($('.alert').length){
+            clearTimeout(timeout);
+
+            $('.alert').fadeOut('fast',function(){
+                $(this).remove();
+            });
+        }   
+    };
+
+
+})(jQuery)

@@ -1,0 +1,6 @@
+GMAIL_USERNAME: sudhakar
+GMAIL_PASSWORD: test1234
+ADMIN_NAME: Thota
+ADMIN_EMAIL: user@example.com
+ADMIN_PASSWORD: test1234
+ROLES: ["admin", "user", "VIP"]

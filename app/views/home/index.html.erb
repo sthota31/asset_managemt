@@ -1,4 +1,33 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
+<div class="container">
+    <div class="row">
+        <%= render "layouts/sidebar" %>
+        <div class="col-sm-9 col-md-9">
+                <h4>Locations</h4>
+          <div style="float:right;padding:5px;"><%= link_to 'New Location', "#" ,:class=>"label label-default"%></div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Location</th>
+                <th>Parent Location</th>
+                <th>Location Code</th>
+                <th>User</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+          <% @users.each do |user| %>
+              <tr class="active">
+                <td>location</td>
+                <td>location</td>
+                <td>location</td>
+                <td>location</td>
+                <td>location</td>
+              </tr>
+          <% end %>
+            </tbody>
+          </table>
+      
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <%= render "layouts/sidebar" %>
+        <div class="col-sm-9 col-md-9">
+          <h4>Locations</h4>
+          <div style="float:right;padding:5px;"><%= link_to 'New Location', new_location_path ,:class=>"label label-default"%></div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Parent Location</th>
+                 <th>Status</th>
+                 <th></th>
+              </tr>
+            </thead>
+            <tbody>
+          <% @floors.each do |floor| %>
+              <tr class="active">
+                <td><%= floor.name %></td>
+                <td>Status</td>
+                <td>Add sublocation </td>
+              </tr>
+          <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>

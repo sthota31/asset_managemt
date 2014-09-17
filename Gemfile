@@ -21,6 +21,7 @@ gem 'bootstrap-sass'
 gem 'cancan'
 gem 'devise'
 gem 'debugger'
+gem "rolify"
 
 group :development, :test do
   gem 'factory_girl_rails'

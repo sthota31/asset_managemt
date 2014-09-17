@@ -1,15 +1,25 @@
 AssetManagement::Application.routes.draw do
   
-  get "home/index"
 
- authenticated :user do
-    root :to => 'home#index'
-  end
 
-  root :to => "home#index"
-  
+  # get "home/index"
+
   devise_for :users
   resources :users
+  resources :locations
+  devise_scope :user do 
+    authenticated :user do
+      root :to => 'locations#index'
+    end
+    unauthenticated :user do
+      root :to => 'devise/sessions#new'
+    end
+end
+
+  # authenticated :user do
+  #   root :to => 'home#index'
+  # end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
