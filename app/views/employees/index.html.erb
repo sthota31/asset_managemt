@@ -1,0 +1,39 @@
+
+<div class="container">
+    <div class="row">
+        <%= render "layouts/sidebar" %>
+        <div class="col-sm-9 col-md-9">
+          <h4>Employees</h4>
+           <div style="float:right;padding:5px;"><%= link_to 'Import', import_employees_path ,:class=>"label label-default"%></div>
+          <div style="float:right;padding:5px;"><%= link_to 'New Employee', new_employee_path ,:class=>"label label-default"%></div>
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                 <th>EmpID</th>
+                 <th>Email</th>
+                 <th>Designation</th>
+                 <th></th>
+              </tr>
+            </thead>
+            <tbody>
+          <% @employees.each do |employee| %>
+  <tr>
+    <td><%= employee.name %></td>
+    <td><%= employee.emp_id %></td>
+    <td><%= employee.email %></td>
+    <td><%= employee.designation %></td>
+    <td><%= link_to 'Show', employee %>
+    <%= link_to 'Edit', edit_employee_path(employee) %>
+   <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>
+
+
+

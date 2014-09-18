@@ -22,8 +22,10 @@ gem 'cancan'
 gem 'devise'
 gem 'debugger'
 gem "rolify"
+gem 'roo'
 
 group :development, :test do
+  gem 'pg', '0.15.1'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
 end

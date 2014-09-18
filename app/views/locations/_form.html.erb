@@ -1,8 +1,43 @@
   
   <div class="form-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :parent_location,:class=>"col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.select :location_id, Location.floors.map {|r| [r.name,r.id] },:class=>"form-control" %>
+    </div>
   </div>
-  
 
-  <button type="submit" class="btn btn-sm">Submit</button
+  <div class="form-group">
+    <%= f.label :name,:class=>"col-sm-2 control-label"  %>
+    <div class="col-sm-4">
+     <%= f.text_field :name,:class=>"form-control", :required => true%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location_code ,:class=>"col-sm-2 control-label"  %>
+    <div class="col-sm-4">
+    <%= f.text_field :location_code,:class=>"form-control" , :required => true%>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :location_type ,:class=>"col-sm-2 control-label"  %>
+    <div class="col-sm-4">
+    <%= f.radio_button :location_type, 'room',:class=>"radio_button_class"%> Room
+    <%= f.radio_button :location_type, 'cabin', :checked => true ,:class=>"radio_button_class"%> Cabin
+    </div>
+  </div>
+
+  <div class="form-group" style="display:none" id="employee_id">
+    <%= f.label :employee_name ,:class=>"col-sm-2 control-label"  %>
+    <div class="col-sm-4">
+    <%= f.text_field :employee_id,:class=>"form-control" %>
+   </div>
+  </div>
+
+  
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+     <button type="submit" class="btn btn-sm">Submit</button>
+  </div>
+</div>

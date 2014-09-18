@@ -2,13 +2,13 @@
     <div class="row">
     	<%= render "layouts/sidebar" %>
       <div class="col-sm-9 col-md-9">
-     <h4 style="align:left;">New Location</h4>
+     <h4 style="align:left;">New Employee</h4>
      <ul>
-      <% @location.errors.full_messages.each do |msg| %>
+      <% @employee.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
-      <%= form_for @location, :url => locations_path  ,:html=>{class: "form-horizontal", role: "form"} do |f| %>
+      <%= form_for @employee, :url => employees_path  ,:html=>{class: "form-horizontal", role: "form"} do |f| %>
       	<%= render :partial => 'form', :locals => {:f => f} %> 
       <% end %>
 

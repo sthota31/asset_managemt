@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <%= render "layouts/sidebar" %>
+        <div class="col-sm-9 col-md-9">
+          <h4> Sublocations</h4>
+           <div style="float:right;padding:5px;"><%= link_to 'Import', import_locations_path ,:class=>"label label-default"%></div>
+          <div style="float:right;padding:5px;"><%= link_to 'New Location', new_location_path ,:class=>"label label-default"%></div>
+
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Parent Location</th>
+                 <th>Location</th>
+                 <th>Location Code</th>
+                 <th>Location Type</th>
+                 <th>EmplyeeId</th>
+                 <th>Status</th>
+                 <th></th>
+              </tr>
+            </thead>
+            <tbody>
+          <% @sublocations.each do |location| %>
+              <tr class="active">
+                <td><%= location.floor.name %></td>
+                <td><%= location.name %></td>
+                <td><%= location.location_code %></td>
+                <td><%= location.location_type %></td>
+                <td><%= location.employee.present? ? location.employee.name : '-' %></td>
+                <td><%= location.status %></td>
+                 <td><%= link_to 'Edit', edit_location_path(location) %></td>
+
+              </tr>
+          <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>

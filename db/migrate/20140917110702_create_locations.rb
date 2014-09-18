@@ -4,8 +4,6 @@ class CreateLocations < ActiveRecord::Migration
       t.string :name
       t.integer :location_id
       t.string :location_code
-      t.string :user_name
-      t.integer :user_id
       t.timestamps
 
     end

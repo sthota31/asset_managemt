@@ -1,17 +1,17 @@
-<div class="container-fluid" style="padding-top:50px">
-    <div class="row-fluid">
-        <div class="span9">
-<h1>Editing Location</h1>
-<ul>
+<div class="container" style="padding-top:50px">
+    <div class="row">
+    	<%= render "layouts/sidebar" %>
+      <div class="col-sm-9 col-md-9">
+     <h4 style="align:left;">Edit Employee</h4>
+     <ul>
       <% @location.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
+      <%= form_for @location, :url => location_path(@location)  ,:html=>{class: "form-horizontal", role: "form"} do |f| %>
+      	<%= render :partial => 'form', :locals => {:f => f} %> 
+      <% end %>
 
-<%= form_for @location, :url => location_path(@location), :html => { :multipart => true } do |f| %>
-<%= render :partial => 'form', :locals => {:f => f} %> 
-<% end %>
-
-</div>
+	</div>
 </div>
 </div>

@@ -9,3 +9,4 @@ class UsersHaveAndBelongToManyRoles < ActiveRecord::Migration
         drop_table :roles_users
     end
 end
+

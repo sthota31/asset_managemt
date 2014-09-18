@@ -6,8 +6,16 @@ class LocationsController < ApplicationController
   	 @floors = Location.floors
   end
 
+  def sublocations
+     @sublocations = Location.sublocations.includes(:employee)
+  end
+
   def new
-  	@location = Location.new()
+    if params[:location_id].present?
+      @location = Location.new(:location_id => params[:location_id])
+    else
+      @location = Location.new()
+    end
   end
 
   def create
@@ -24,9 +32,25 @@ class LocationsController < ApplicationController
   
   end
 
-  def update
-  end
+  def import
+    if !request.get?
+       Location.import(params[:file])
+       redirect_to sublocations_url, notice: "Locations imported."
+    end
+     end
+   def update
 
+    respond_to do |format|
+      
+      if @location.update_attributes(params[:location])
+        format.html { redirect_to locations_path, notice: 'Location was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @location.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   def edit
   end
 

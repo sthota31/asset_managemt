@@ -1,10 +1,11 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to  "Asset Management", '#', id: "logo" %>
+      <%= link_to  "Asset Management", "#", id: "logo" %>
       <nav class="navbar  navbar-fixed-top">
         <ul class="nav navbar-nav pull-right">
         <% if user_signed_in? %>
+          <li><%= link_to 'Home', locations_path %></li>
            <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
          <% end %>
         <% if user_signed_in? %>

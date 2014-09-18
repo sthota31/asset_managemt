@@ -2,11 +2,26 @@ AssetManagement::Application.routes.draw do
   
 
 
+  resources :employees do
+    collection do
+      get 'import'
+      post 'import'
+    end
+  end
+
+
   # get "home/index"
 
   devise_for :users
   resources :users
-  resources :locations
+  resources :locations do 
+    collection do
+      get 'sublocations'
+      get 'import'
+      post 'import'
+    end
+  end
+
   devise_scope :user do 
     authenticated :user do
       root :to => 'locations#index'
