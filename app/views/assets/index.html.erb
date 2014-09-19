@@ -1,0 +1,38 @@
+
+<div class="container">
+    <div class="row">
+        <%= render "layouts/sidebar" %>
+        <div class="col-sm-9 col-md-9">
+          <h4>Assets</h4>
+          <div style="float:right;padding:5px;">
+            <%= link_to 'Import', import_assets_path ,:class=>"label label-default"%>
+          </div>
+          <div style="float:right;padding:5px;">
+            <%= link_to 'New Asset', new_asset_path ,:class=>"label label-default"%>
+          </div>
+          <table class="table table-bordered">
+            <thead>
+             <tr>
+              <th>Asset type</th>
+              <th>Make</th>
+              <th>Model</th>
+              <th>Service tag</th>
+              <th></th>
+             </tr>
+            </thead>
+            <tbody>
+          <% @assets.each do |asset| %>
+          <tr>
+            <td><%= asset.asset_type %></td>
+            <td><%= asset.make %></td>
+            <td><%= asset.model %></td>
+            <td><%= asset.service_tag %></td>
+            <td><%= link_to 'Edit', edit_asset_path(asset) %> &nbsp;<%= link_to 'Destroy', asset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+          <% end %>
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>
+

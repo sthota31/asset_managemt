@@ -1,12 +1,13 @@
 class Location < ActiveRecord::Base
   attr_accessible :location_code, :name, :location_id, :status,:employee_id,:location_type
   # LOCATIONS = ["B0","B1","B2","E3","D3","D4"]
-  belongs_to :floor, class_name: "Location",
+   belongs_to :floor, class_name: "Location",
                           foreign_key: "location_id"
-  scope :floors ,:conditions=>"location_id = 0"
+   scope :floors ,:conditions=>"location_id = 0"
    scope :sublocations ,:conditions=>"location_id != 0"
 
   validates :name,:location_type,:location_code,:presence => true
+
   belongs_to :employee
 
   def self.import(file)

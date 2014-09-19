@@ -1,0 +1,39 @@
+
+  
+  <div class="form-group">
+    <%= f.label :asset_type,:class=>"col-sm-2 control-label" %>
+    <div class="col-sm-4">
+      <%= f.select :asset_type, ['Desktop','Laptop'],:class=>"form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :make,:class=>"col-sm-2 control-label"  %>
+    <div class="col-sm-4">
+     <%= f.text_field :make,:class=>"form-control", :required => true%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :model ,:class=>"col-sm-2 control-label"  %>
+    <div class="col-sm-4">
+    <%= f.text_field :model,:class=>"form-control" , :required => true%>
+  </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :service_tag ,:class=>"col-sm-2 control-label"  %>
+    <div class="col-sm-4">
+    <%= f.text_field :service_tag,:class=>"form-control" %>
+   </div>
+  </div>
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+     <button type="submit" class="btn btn-sm">Submit</button>
+  </div>
+</div>
+
+
+
+
+

@@ -1,6 +1,8 @@
 class Employee < ActiveRecord::Base
   attr_accessible :designation, :email, :emp_id, :name
-  has_one :location
+  has_many :locations
+  has_many :assignments
+  has_many :asssets :through=> :assignments
   validates :name,:email,:emp_id,:designation,:presence => true
 
   def self.import(file)

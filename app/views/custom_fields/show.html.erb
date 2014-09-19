@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Field name:</b>
+  <%= @custom_field.field_name %>
+</p>
+
+<p>
+  <b>Label name:</b>
+  <%= @custom_field.label_name %>
+</p>
+
+<p>
+  <b>Field type:</b>
+  <%= @custom_field.field_type %>
+</p>
+
+<p>
+  <b>Asset:</b>
+  <%= @custom_field.asset_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_custom_field_path(@custom_field) %> |
+<%= link_to 'Back', custom_fields_path %>

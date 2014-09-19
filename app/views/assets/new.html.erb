@@ -1,0 +1,18 @@
+<div class="container" style="padding-top:50px">
+    <div class="row">
+    	<%= render "layouts/sidebar" %>
+      <div class="col-sm-9 col-md-9">
+     <h4 style="align:left;">New Asset</h4>
+     <ul>
+      <% @asset.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+      <%= form_for @asset, :url => assets_path  ,:html=>{class: "form-horizontal", role: "form"} do |f| %>
+      	<%= render :partial => 'form', :locals => {:f => f} %> 
+      <% end %>
+
+	</div>
+</div>
+</div>
+

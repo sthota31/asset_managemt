@@ -2,6 +2,23 @@ AssetManagement::Application.routes.draw do
   
 
 
+  resources :custom_fields
+
+
+  resources :categories
+
+
+  resources :assignments
+
+
+  resources :assets do
+    collection do
+      get 'import'
+      post 'import'
+    end
+  end
+
+
   resources :employees do
     collection do
       get 'import'

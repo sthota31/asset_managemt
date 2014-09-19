@@ -11,7 +11,50 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140918065049) do
+ActiveRecord::Schema.define(:version => 20140919091629) do
+
+  create_table "assets", :force => true do |t|
+    t.string   "asset_type"
+    t.string   "make"
+    t.string   "model"
+    t.string   "service_tag"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.string   "model_type"
+    t.date     "warranty_start"
+    t.date     "warranty_end"
+    t.string   "serial_no"
+    t.string   "status",         :default => "Not Assigned"
+    t.integer  "category_id"
+  end
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "assigned_by"
+    t.integer  "asset_id"
+    t.integer  "employee_id"
+    t.integer  "location_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "status",      :default => "active"
+    t.text     "description"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
+
+  create_table "custom_fields", :force => true do |t|
+    t.string   "field_name"
+    t.text     "field_value"
+    t.string   "label_name"
+    t.string   "field_type",  :default => "text_field"
+    t.integer  "asset_id"
+    t.string   "status",      :default => "active"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+  end
 
   create_table "employees", :force => true do |t|
     t.string   "name"

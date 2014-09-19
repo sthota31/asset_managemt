@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Asst type:</b>
+  <%= @asset.asset_type %>
+</p>
+
+<p>
+  <b>Make:</b>
+  <%= @asset.make %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @asset.model %>
+</p>
+
+<p>
+  <b>Service tag:</b>
+  <%= @asset.service_tag %>
+</p>
+
+
+<%= link_to 'Edit', edit_asset_path(@asset) %> |
+<%= link_to 'Back', assets_path %>
