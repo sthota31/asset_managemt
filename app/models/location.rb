@@ -1,14 +1,14 @@
 class Location < ActiveRecord::Base
   attr_accessible :location_code, :name, :location_id, :status,:employee_id,:location_type
-  # LOCATIONS = ["B0","B1","B2","E3","D3","D4"]
+   LOCATION_TYPES = ["Cabin","WorkStation","AudioRoom","VideoRoom","MeetingRoom"]
    belongs_to :floor, class_name: "Location",
                           foreign_key: "location_id"
    scope :floors ,:conditions=>"location_id = 0"
    scope :sublocations ,:conditions=>"location_id != 0"
 
-  validates :name,:location_type,:location_code,:presence => true
+  # validates :name,:location_type,:location_code,:presence => true
 
-  belongs_to :employee
+  has_many :employees
 
   def self.import(file)
 
@@ -29,12 +29,13 @@ if loc
     	location.name = row['Name']
     	location.location_code = row['LocationCode']
     	location.location_type = row['LocationType']
-    	if row['LocationType'] == "Cabin"
-    	    employee = Employee.find_by_emp_id(row['EmpId'])
-    	  if employee
-    	 location.employee_id = employee.id
-    	end
-    	end
+    	# if row['LocationType'] == "Cabin"
+    	#     employee = Employee.find_by_emp_id(row['EmpId'])
+    	#   if employee
+    	#  location.employee_id = employee.id
+    	# end
+    	# end
+      location.assigned = "Notassigned"
     	location.status = "Active"
     	location.save
     end

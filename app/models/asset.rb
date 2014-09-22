@@ -1,6 +1,6 @@
 class Asset < ActiveRecord::Base
 
-  attr_accessible :asset_type, :make, :model, :service_tag
+  attr_accessible :asset_type, :make, :model, :service_tag ,:name, :purchase_date, :warranty_date, :vendor_name, :uniqasset_id
   belongs_to :category
   has_many :custom_fields
   attr_accessible :custom_fields_attributes

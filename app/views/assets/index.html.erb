@@ -13,21 +13,29 @@
           <table class="table table-bordered">
             <thead>
              <tr>
+              <th>Name</th>
               <th>Asset type</th>
               <th>Make</th>
               <th>Model</th>
-              <th>Service tag</th>
+              <th>Purchase Date</th>
+              <th>Warranty Date</th>
+              <th>Vendor</th>
+              <th>AssetID</th>
               <th></th>
              </tr>
             </thead>
             <tbody>
           <% @assets.each do |asset| %>
           <tr>
+            <td><%= asset.name %></td>
             <td><%= asset.asset_type %></td>
             <td><%= asset.make %></td>
             <td><%= asset.model %></td>
-            <td><%= asset.service_tag %></td>
-            <td><%= link_to 'Edit', edit_asset_path(asset) %> &nbsp;<%= link_to 'Destroy', asset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= format_date(asset.purchase_date) %></td>
+            <td><%= format_date(asset.warranty_date) %></td>
+            <td><%= asset.vendor_name %></td>
+            <td><%= asset.uniqasset_id %></td>
+            <td><%= link_to 'Edit', edit_asset_path(asset) %><%= link_to 'Destroy', asset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
           <% end %>
             </tbody>

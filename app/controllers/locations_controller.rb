@@ -7,7 +7,7 @@ class LocationsController < ApplicationController
   end
 
   def sublocations
-     @sublocations = Location.sublocations.includes(:employee)
+     @sublocations = Location.sublocations
   end
 
   def new
@@ -22,7 +22,7 @@ class LocationsController < ApplicationController
   	@location = Location.new(params[:location])
   	respond_to do |format|
       if @location.save
-        format.html { redirect_to locations_url, notice: 'Location was successfully created.' }
+        format.html { redirect_to sublocations_locations_url, notice: 'Location was successfully created.' }
         format.json { render action: 'show', status: :created, location: @location }
       else
         format.html { render action: 'new' }
@@ -35,7 +35,7 @@ class LocationsController < ApplicationController
   def import
     if !request.get?
        Location.import(params[:file])
-       redirect_to sublocations_url, notice: "Locations imported."
+       redirect_to sublocations_locations_url, notice: "Locations imported."
     end
      end
    def update
@@ -43,7 +43,7 @@ class LocationsController < ApplicationController
     respond_to do |format|
       
       if @location.update_attributes(params[:location])
-        format.html { redirect_to locations_path, notice: 'Location was successfully updated.' }
+        format.html { redirect_to sublocations_locations_url, notice: 'Location was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

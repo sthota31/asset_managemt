@@ -7,7 +7,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :emp_id ,:class=>"col-sm-2 control-label"  %>
+    <%= f.label "EmployeeId" ,:class=>"col-sm-2 control-label"  %>
     <div class="col-sm-4">
     <%= f.number_field :emp_id,:class=>"form-control" , :required => true%>
   </div>
@@ -25,6 +25,13 @@
     <%= f.label :designation ,:class=>"col-sm-2 control-label"  %>
     <div class="col-sm-4">
     <%= f.text_field :designation,:class=>"form-control" %>
+   </div>
+  </div>
+
+  <div class="form-group"  id="employee_id">
+    <%= f.label "Contact No" ,:class=>"col-sm-2 control-label"  %>
+    <div class="col-sm-4">
+    <%= f.text_field :contact,:class=>"form-control" %>
    </div>
   </div>
 

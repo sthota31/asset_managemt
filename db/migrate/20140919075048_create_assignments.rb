@@ -5,7 +5,6 @@ class CreateAssignments < ActiveRecord::Migration
       t.integer :asset_id
       t.integer :employee_id
       t.integer :location_id
-
       t.timestamps
     end
   end

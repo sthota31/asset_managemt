@@ -14,6 +14,7 @@
                  <th>EmpID</th>
                  <th>Email</th>
                  <th>Designation</th>
+                 <th>Contact</th>
                  <th></th>
               </tr>
             </thead>
@@ -24,6 +25,8 @@
     <td><%= employee.emp_id %></td>
     <td><%= employee.email %></td>
     <td><%= employee.designation %></td>
+        <td><%= employee.contact %></td>
+
     <td><%= link_to 'Show', employee %>
     <%= link_to 'Edit', edit_employee_path(employee) %>
    <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>

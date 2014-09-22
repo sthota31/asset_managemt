@@ -13,7 +13,6 @@
                  <th>Location</th>
                  <th>Location Code</th>
                  <th>Location Type</th>
-                 <th>EmplyeeId</th>
                  <th>Status</th>
                  <th></th>
               </tr>
@@ -25,7 +24,6 @@
                 <td><%= location.name %></td>
                 <td><%= location.location_code %></td>
                 <td><%= location.location_type %></td>
-                <td><%= location.employee.present? ? location.employee.name : '-' %></td>
                 <td><%= location.status %></td>
                  <td><%= link_to 'Edit', edit_location_path(location) %></td>
 

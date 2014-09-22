@@ -50,6 +50,10 @@ class AssetsController < ApplicationController
   def create
     @asset = Asset.new(params[:asset])
 
+    params[:asset][:purchase_date] = Date.strptime(params[:asset][:purchase_date], "%d/%m/%Y")
+    params[:asset][:warranty_date] = Date.strptime(params[:asset][:warranty_date], "%d/%m/%Y")
+
+
     respond_to do |format|
       if @asset.save
         format.html { redirect_to @asset, notice: 'Asset was successfully created.' }

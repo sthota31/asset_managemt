@@ -1,4 +1,3 @@
-  
   <div class="form-group">
     <%= f.label :parent_location,:class=>"col-sm-2 control-label" %>
     <div class="col-sm-4">
@@ -23,18 +22,13 @@
   <div class="form-group">
     <%= f.label :location_type ,:class=>"col-sm-2 control-label"  %>
     <div class="col-sm-4">
-    <%= f.radio_button :location_type, 'room',:class=>"radio_button_class"%> Room
-    <%= f.radio_button :location_type, 'cabin', :checked => true ,:class=>"radio_button_class"%> Cabin
+            <%= f.select :location_type, Location::LOCATION_TYPES,:class=>"form-control" %>
+
+   
     </div>
   </div>
 
-  <div class="form-group" style="display:none" id="employee_id">
-    <%= f.label :employee_name ,:class=>"col-sm-2 control-label"  %>
-    <div class="col-sm-4">
-    <%= f.text_field :employee_id,:class=>"form-control" %>
-   </div>
-  </div>
-
+  
   
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">

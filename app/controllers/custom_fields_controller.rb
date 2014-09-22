@@ -1,4 +1,6 @@
 class CustomFieldsController < ApplicationController
+    before_filter :authenticate_user!
+
   # GET /custom_fields
   # GET /custom_fields.json
   def index

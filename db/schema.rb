@@ -11,20 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140919091629) do
+ActiveRecord::Schema.define(:version => 20140922091046) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset_type"
     t.string   "make"
     t.string   "model"
     t.string   "service_tag"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.string   "model_type"
-    t.date     "warranty_start"
-    t.date     "warranty_end"
-    t.string   "serial_no"
-    t.string   "status",         :default => "Not Assigned"
+    t.date     "purchase_date"
+    t.date     "warranty_date"
+    t.string   "uniqasset_id"
+    t.string   "vendor_name"
+    t.string   "name"
+    t.string   "status",        :default => "Not Assigned"
     t.integer  "category_id"
   end
 
@@ -61,19 +63,21 @@ ActiveRecord::Schema.define(:version => 20140919091629) do
     t.integer  "emp_id"
     t.string   "email"
     t.string   "designation"
+    t.string   "location_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "contact"
   end
 
   create_table "locations", :force => true do |t|
     t.string   "name"
     t.integer  "location_id"
     t.string   "location_code"
+    t.string   "location_type"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "status"
-    t.integer  "employee_id"
-    t.string   "location_type"
+    t.string   "assigned"
   end
 
   create_table "roles", :force => true do |t|
